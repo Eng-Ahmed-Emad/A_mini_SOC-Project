@@ -8,6 +8,7 @@
 
 - **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/0x3omda/)  
 - **Portfolio:** [Portfolio](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)
+<img align="right" height="153" width="159" src="gif/anime-frieren.gif" z-index="11" />
 ## Introduction
 # Mini SOC with Automated Suspicious Behavior Detection  
 ## Screenshots
