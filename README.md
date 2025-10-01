@@ -22,6 +22,11 @@
 
 
 ## Screenshots
+## Demo Video
+
+[![Watch Demo](Videos/WazuhAutomationRemoveMalwareBy3omda.mp4)
+
+
 
 ### VirusTotal Auto-Removal
 ![VirusTotal](Screenshots/1.png)
