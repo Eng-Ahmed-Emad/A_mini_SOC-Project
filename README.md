@@ -15,8 +15,8 @@
 </div>
 
 
-## Introduction
-# Mini SOC with Automated Suspicious Behavior Detection  
+
+
 ## Screenshots
 
 ### VirusTotal Auto-Removal
