@@ -5,8 +5,19 @@
 **SOC Team Lead:**  
 👤 **Ahmed Emad Eldeen Abdelmoneam**
 
-- **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/0x3omda/)  
-- **Portfolio:** [Portfolio](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)   <img align="right" height="153" width="159" src="gif/anime-frieren.gif" />
+<table>
+  <tr>
+    <td>
+      <ul>
+        <li>🔗 <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/0x3omda/">linkedin.com/in/0x3omda/</a></li>
+        <li>🌐 <b>Portfolio:</b> <a href="https://eng-ahmed-emad.github.io/AhmedEmad-Dev/">Portfolio</a></li>
+      </ul>
+    </td>
+    <td>
+      <img align="right" height="153" width="159" src="gif/anime-frieren.gif" />
+    </td>
+  </tr>
+</table>
 
 
 
