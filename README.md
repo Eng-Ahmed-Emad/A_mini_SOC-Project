@@ -1,14 +1,20 @@
-
 # Mini SOC with Automated Suspicious Behavior Detection Using Atomic Red Team + VirusTotal Integration for Malicious File Auto-Removal (Linux)
 
 ## Authors & Contributions
 
 **SOC Team Lead:**  
-👤 **Ahmed Emad Eldeen Abdelmoneam**  
+👤 **Ahmed Emad Eldeen Abdelmoneam**
+
+<div align="left">
 
 - **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/0x3omda/)  
-- **Portfolio:** [Portfolio](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)
-<img align="right" height="153" width="159" src="gif/anime-frieren.gif" z-index="11" />
+- **Portfolio:** [Portfolio](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)  
+
+<img align="right" height="153" width="159" src="gif/anime-frieren.gif" />
+
+</div>
+
+
 ## Introduction
 # Mini SOC with Automated Suspicious Behavior Detection  
 ## Screenshots
