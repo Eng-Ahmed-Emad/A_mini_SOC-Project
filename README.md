@@ -5,7 +5,7 @@
 **SOC Team Lead:**  
 👤 **Ahmed Emad Eldeen Abdelmoneam**  
 
-- **LinkedIn:** [linkedin.com/in/ahmedemadeldeen](www.linkedin.com/in/ahmed-emad-eldeen-a77420284)  
+- **LinkedIn:** [linkedin.com/in/ahmedemadeldeen](www.linkedin.com/in/0x3omda)  
 - **Portfolio:** [eng-ahmed-emad.github.io/AhmedEmad-Dev](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)
 ## Introduction
 
