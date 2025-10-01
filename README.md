@@ -5,8 +5,8 @@
 **SOC Team Lead:**  
 👤 **Ahmed Emad Eldeen Abdelmoneam**  
 
-- **LinkedIn:** [linkedin.com/in/ahmedemadeldeen](www.linkedin.com/in/0x3omda)  
-- **Portfolio:** [eng-ahmed-emad.github.io/AhmedEmad-Dev](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)
+- **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/0x3omda/)  
+- **Portfolio:** [Portfolio](https://eng-ahmed-emad.github.io/AhmedEmad-Dev/)
 ## Introduction
 
 The Mini SOC project aims to establish a basic Security Operations Center (SOC) that utilizes the **Wazuh SIEM solution**, **Atomic Red Team** for simulating various cyberattack techniques, and **VirusTotal integration** for automated malicious file detection and removal. This initiative is designed to assess the detection capabilities of the SOC against suspicious behaviors and threats, employing techniques mapped to the MITRE ATT\&CK framework while also introducing automated file response workflows.
