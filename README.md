@@ -22,10 +22,11 @@
   </tr>
 </table>
 
-
-
 ## Screenshots
-
+### Custom Dashboard
+![Dashboard](Screenshots/CustomDashboard1.png)
+![Dashboard](Screenshots/CustomDashboard2.png)
+### -------------------------------------------------------------
 ### VirusTotal Auto-Removal
 ![VirusTotal](Screenshots/1.png)
 ### VirusTotal Auto-Removal2
@@ -37,10 +38,6 @@
 ![VirusTotal](Screenshots/7.png)
 ![VirusTotal](Screenshots/8.png)
 ![VirusTotal](Screenshots/9.png)
-### -------------------------------------------------------------
-### Custom Dashboard
-![Dashboard](Screenshots/CustomDashboard1.png)
-![Dashboard](Screenshots/CustomDashboard2.png)
 
 ## Introduction
 The Mini SOC project aims to establish a basic Security Operations Center (SOC) that utilizes the **Wazuh SIEM solution**, **Atomic Red Team** for simulating various cyberattack techniques, and **VirusTotal integration** for automated malicious file detection and removal. This initiative is designed to assess the detection capabilities of the SOC against suspicious behaviors and threats, employing techniques mapped to the MITRE ATT\&CK framework while also introducing automated file response workflows.
