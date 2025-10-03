@@ -52,6 +52,19 @@
     <td><img src="Screenshots/9.png" width="300"/></td>
   </tr>
 </table>
+### Enable File Integrity Monitor on Windows
+<table>
+  <tr>
+    <td><img src="Screenshots/edit ossec on win.png" width="300"/></td>
+    <td><img src="Screenshots/create txt file to see if fim is working.png" width="300"/></td>
+    
+  </tr>
+  <tr>
+    <td><img src="Screenshots/enable fim to folder ahmed.png" width="300"/></td>
+    <td><img src="Screenshots/it works and event appeard .png" width="300"/></td>
+    
+  </tr>
+</table>
 
 ## Introduction
 The Mini SOC project aims to establish a basic Security Operations Center (SOC) that utilizes the **Wazuh SIEM solution**, **Atomic Red Team** for simulating various cyberattack techniques, and **VirusTotal integration** for automated malicious file detection and removal. This initiative is designed to assess the detection capabilities of the SOC against suspicious behaviors and threats, employing techniques mapped to the MITRE ATT\&CK framework while also introducing automated file response workflows.
