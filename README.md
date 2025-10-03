@@ -1,4 +1,4 @@
-# 🛡️ Mini SOC with Automated Suspicious Behavior Detection  
+# 🛡️ Mini SOC with Automated Suspicious Behavior Detection  By Ahmed Emad
 ### Using **Wazuh SIEM**, **Atomic Red Team**, & **VirusTotal Auto-Removal (Linux)**
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)  
@@ -61,6 +61,7 @@ The main goal is to **assess and improve detection capabilities** of the SOC aga
 - ✅ Simulate real-world cyberattacks to test SOC detection effectiveness  
 - ✅ Automate continuous malicious behavior across network environments  
 - ✅ Integrate VirusTotal with Wazuh for **auto-quarantine of malicious files**  
+- ✅ File Integrity Monitoring To monitor in real time 24/7 
 
 ---
 
@@ -164,11 +165,11 @@ Each attack was scheduled via **cron (Linux)** & **Task Scheduler (Windows)** to
 
 ## ✅ Conclusion
 This **Mini SOC** proved effective in detecting and containing a wide variety of attacks with strong automation capabilities.  
-By enhancing correlation, fine-tuning thresholds, and expanding attack simulations, the SOC can evolve into a **robust detection & response ecosystem**.  
+By enhancing correlation, fine-tuning thresholds, and expanding attack simulations, the SOC can evolve into a **robust detection & response ecosystem and 24/7 monitoring**.  
 
 ---
 
 ## 📜 License
-This project is licensed under the [MIT License](LICENSE).  
+This project is licensed under the [Ahmed Emad Eldeen ](LICENSE).  
 
 ---
