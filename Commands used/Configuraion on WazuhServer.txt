@@ -1,0 +1,25 @@
+1- go to sudo nano /var/ossec/etc/ossec.conf
+
+
+2- <integration>
+  <name>virustotal</name>
+  <api_key>ee690a6c4f9175b3300dc38a484b6a919b1d9cfd6c5590ad0d9df25477d855a9</api_key> <!-- Replace with your VirusTotal API key -->
+  <group>syscheck</group>
+  <alert_format>json</alert_format>
+</integration>
+
+
+3- xdg-open /var/ossec/etc/ossec.conf
+
+4- <command>
+    <name>remove-threat</name>
+    <executable>remove-threat.sh</executable>
+    <timeout_allowed>no</timeout_allowed>
+</command>
+
+<active-response>
+    <disabled>no</disabled>
+    <command>remove-threat</command>
+    <location>local</location>
+    <rules_id>87105</rules_id>
+</active-response>

@@ -1,0 +1,5 @@
+  <agent_config os="Linux">
+    <syscheck>
+      <directories realtime="yes" check_all="yes">/home/kali/malware</directories>
+    </syscheck>
+  </agent_config>

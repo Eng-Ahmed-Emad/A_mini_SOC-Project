@@ -1,0 +1,12 @@
+ /var/ossec/bin/manage_agents -l
+
+Then you can remove a specific agent running the following terminal command in the manager:
+
+/var/ossec/bin/manage_agents -r <AGENT_ID> 
+
+ for windows agent to enable file integrity monitor
+<ossec_config>
+  <syscheck>
+    <directories check_all="yes" report_changes="yes" realtime="yes">C:\</directories>
+  </syscheck>
+</ossec_config>
