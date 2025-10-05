@@ -71,7 +71,7 @@ The main goal is to **assess and improve detection capabilities** of the SOC aga
 3. **Wazuh SIEM:** Collects logs, applies correlation rules, and triggers alerts.  
 4. **VirusTotal Integration:** Any file in `/home/malware` is scanned → malicious files are automatically quarantined or removed.  
 
-*(Consider adding an architecture diagram here for clarity.)*
+<img align="right" height="153" width="159" src="Project Architecture/AhmedEmad-mini-soc.drawio.png" />
 
 ---
 
