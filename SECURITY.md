@@ -1,37 +1,36 @@
 # 🔐 Security Policy
 
 ## Supported Versions
-We release security updates only for the following versions:
+Only the latest version of this project is actively maintained and receives security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | ✅ Supported        |
-| < 1.0   | ❌ Not supported    |
+| Version | Supported |
+|----------|------------|
+| latest   | ✅ |
+| old      | ❌ |
 
 ---
 
 ## Reporting a Vulnerability
-If you discover a security vulnerability in **A_mini_SOC-Project**, please follow these steps:
+If you discover a security vulnerability, please **do not create a public issue**.  
+Instead, report it responsibly by following these steps:
 
-1. **Do not create a public GitHub issue** for the vulnerability.
-2. Contact us privately at: **[your-email@example.com]**
-3. Provide detailed information about:
-   - The type of issue (e.g., XSS, RCE, privilege escalation, etc.)
-   - Steps to reproduce the issue
-   - Potential impact
-   - Suggested fix (if any)
-
----
-
-## Response Timeline
-- ⏱️ We will acknowledge receipt of your report within **48 hours**.
-- 🛠️ We will provide an initial assessment within **7 business days**.
-- 🔒 If confirmed, we will work on a fix and release a patch as soon as possible.
+1. Send an email to **ahmedemadeldeen77@gmail.com** with the subject line:  
+   `Security Vulnerability Report - A_mini_SOC Project`
+2. Include:
+   - A clear description of the issue  
+   - Steps to reproduce (if applicable)  
+   - Potential impact and suggested fix (if possible)
+3. You will receive an acknowledgment within **48 hours**, and a fix will be issued as soon as possible.
 
 ---
 
 ## Responsible Disclosure
-Please follow **Responsible Disclosure** principles:
-- Do not publicly disclose the vulnerability before we release a fix.
-- Do not exploit the vulnerability beyond what is required for proof of concept.
-- Work with us to ensure a safe resolution for all users.
+We appreciate responsible disclosure and will credit security researchers who help us improve our project security.  
+Please do **not** publicly disclose vulnerabilities until a fix has been released.
+
+---
+
+## Security Contact
+**Ahmed Emad Eldeen Abdelmoneam**  
+Security Operations Center & Cloud Security Engineer  
+📧 ahmedemadeldeen77@gmail.com
