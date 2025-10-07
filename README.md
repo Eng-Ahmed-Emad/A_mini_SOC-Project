@@ -90,8 +90,9 @@ This project establishes a **Mini SOC** leveraging:
 
 ### 🧩 System Architecture Diagram
 <p align="center">
-  <img src="Project Architecture/AhmedEmad-mini-soc.drawio.png" alt="Mini SOC Architecture Diagram" width="750"/>
+  <img src="Project Architecture/AhmedEmad-mini-soc.drawio.png" alt="Mini SOC Architecture Diagram" width="900"/>
 </p>
+
 
 ---
 
