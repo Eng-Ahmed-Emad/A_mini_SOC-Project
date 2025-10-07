@@ -235,36 +235,6 @@ Each attack was scheduled via **cron (Linux)** and **Task Scheduler (Windows)** 
 
 ---
 
-### 🦠 VirusTotal Auto-Removal
-<table>
-  <tr>
-    <td><img src="Screenshots/1.png" width="300"/></td>
-    <td><img src="Screenshots/2.png" width="300"/></td>
-    <td><img src="Screenshots/3.png" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="Screenshots/4.png" width="300"/></td>
-    <td><img src="Screenshots/5.png" width="300"/></td>
-    <td><img src="Screenshots/6.png" width="300"/></td>
-  </tr>
-</table>
-
----
-
-### 📂 File Integrity Monitoring (Windows)
-<table>
-  <tr>
-    <td><img src="Screenshots/edit ossec on win.png" width="300"/></td>
-    <td><img src="Screenshots/create txt file to see if fim is working.png" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="Screenshots/enable fim to folder ahmed.png" width="300"/></td>
-    <td><img src="Screenshots/it works and event appeard .png" width="300"/></td>
-  </tr>
-</table>
-
----
-
 ## ✅ Conclusion
 This **Mini SOC** proved effective in detecting and containing a wide variety of attacks with **strong automation capabilities**.  
 By enhancing correlation, fine-tuning thresholds, and expanding attack simulations, the SOC can evolve into a **robust detection, response, and 24/7 monitoring ecosystem**.
