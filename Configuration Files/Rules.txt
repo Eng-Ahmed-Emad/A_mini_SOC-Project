@@ -1,0 +1,85 @@
+<group name="local,syslog,sshd">
+  <!-- Example: specific IP failed auth -->
+  <rule id="150001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5</group>
+  </rule>
+</group>
+
+<group name="attack">
+  <!-- IP reputation check using a lookup list -->
+  <rule id="150100" level="10">
+    <if_group>web|attack|attacks</if_group>
+    <list field="srcip" lookup="address_match_key">/var/ossec/etc/lists/blacklist-alienvault</list>
+    <description>IP address found in AlienVault reputation database.</description>
+  </rule>
+</group>
+
+<group name="ossec">
+  <rule id="150050" level="0">
+    <if_sid>530</if_sid>
+    <match>^ossec: output: 'process list'</match>
+    <description>List of running processes.</description>
+    <group>process_monitor</group>
+  </rule>
+
+  <rule id="150051" level="7" ignore="900">
+    <if_sid>150050</if_sid>
+    <match>nc -l</match>
+    <description>netcat listening for incoming connections.</description>
+    <group>process_monitor</group>
+  </rule>
+</group>
+
+<group name="syscheck,pci_dss_11.5,nist_800_53_SI.7">
+  <!-- Syscheck examples for a user's directory -->
+  <rule id="150200" level="7">
+    <if_sid>550</if_sid>
+    <field name="file">/home/ahmed/ahmed</field>
+    <description>File modified in /home/ahmed/ahmed directory.</description>
+  </rule>
+
+  <rule id="150201" level="7">
+    <if_sid>554</if_sid>
+    <field name="file">/home/ahmed/ahmed</field>
+    <description>File added to /home/ahmed/ahmed directory.</description>
+  </rule>
+</group>
+
+<group name="audit">
+  <!-- Use match_key_value lookup for commands list; list must be in /var/ossec/etc/lists/ with proper format -->
+  <rule id="150210" level="12">
+    <if_sid>80792</if_sid>
+    <list field="audit.command" lookup="match_key_value" check_value="red">/var/ossec/etc/lists/suspicious-programs</list>
+    <description>Audit: Highly Suspicious Command executed: $(audit.exe)</description>
+    <group>audit_command</group>
+  </rule>
+</group>
+
+<group name="virustotal,">
+  <rule id="100092" level="12">
+      <if_sid>657</if_sid>
+      <match>Successfully removed threat</match>
+      <description>$(parameters.program) removed threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+
+  <rule id="100093" level="12">
+    <if_sid>657</if_sid>
+    <match>Error removing threat</match>
+    <description>Error removing threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+</group>
+
+<group name="malware,">
+  <rule id="110002" level="13">
+    <!-- The if_sid tag references the built-in FIM rules -->
+    <if_sid>554, 550</if_sid>
+    <list field="md5" lookup="match_key">etc/lists/malware-hashes</list>
+    <description>File with known malware hash detected: $(file)</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+</group>
