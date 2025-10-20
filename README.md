@@ -1,7 +1,7 @@
 # 🛡️ SOC Enviroment with Automated Suspicious Behavior Detection  
 ### By **Ahmed Emad Eldeen Abdelmoneam**
 
-Using **Wazuh SIEM and EDR**, **Atomic Red Team**, **YARA**, **Suricata (IDS)**  **VirusTotal Auto-Removal**
+Using **Wazuh SIEM and EDR**, **Atomic Red Team**, **YARA**, **Suricata (IDS)**  **VirusTotal Auto-Removal**,**Custom Rules By 3omda** , **SocSOCFortress Wazuh Rules**
 
 <!-- Badges row -->
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -163,7 +163,11 @@ Each attack was scheduled via **cron (Linux)** and **Task Scheduler (Windows)** 
 - **Suricata → Wazuh** correlation rules (network ↔ host fusion)  
 - **YARA scanning** + FIM correlation  
 - **Custom exfiltration detection** logic (data transfer heuristics)  
-- **Atomic Red Team → MITRE ATT&CK** mapping for repeatable test cases
+- **Atomic Red Team → MITRE ATT&CK** mapping for repeatable test cases  
+- **SOCFortress Wazuh Rules (Partial Integration)** — imported and tuned to enhance detection coverage across multiple MITRE ATT&CK techniques (e.g., T1059 Command Execution, T1003 Credential Dumping, T1078 Valid Accounts).  
+  These rules expand Wazuh’s native capabilities and provide better visibility into suspicious PowerShell, Sysmon, and Windows event logs.  
+  🔗 [SOCFortress Wazuh Rules Repository](https://github.com/socfortress/Wazuh-Rules)
+
 
 ---
 
@@ -230,6 +234,7 @@ Each attack was scheduled via **cron (Linux)** and **Task Scheduler (Windows)** 
 - [x] **Forensics collector + metadata pipeline**  
 - [x] **Documentation:** playbooks, runbooks, secrets handling  
 - [x] **Tests:** PoC run script + alert collection
+- [x] **SOCFortress Wazuh Rules** (partially imported and tuned)
 
 ---
 
