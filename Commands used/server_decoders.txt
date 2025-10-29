@@ -1,0 +1,291 @@
+<!-- ========================================================= -->
+<!--  Ahmed Emad - Custom Local Decoders (SOC Configuration)  -->
+<!--  Version: 2.0 | Compatible with Wazuh v4.x and v5.x      -->
+<!-- ========================================================= -->
+
+<!-- ====================== YARA DECODERS ====================== -->
+
+<decoder name="yara_decoder">
+  <prematch>wazuh-yara:</prematch>
+</decoder>
+
+<decoder name="yara_scan_result">
+  <parent>yara_decoder</parent>
+  <regex>wazuh-yara:\s+(\S+)\s+-\s+Scan result:\s+Rule:(\S+)\s+File:(\S+)</regex>
+  <order>log_type, yara_rule, yara_file</order>
+</decoder>
+
+<decoder name="yara_rule_name">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">Rule:(\S+)</regex>
+  <order>rule_name</order>
+</decoder>
+
+<decoder name="yara_rule_description">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">description="([^"]+)"</regex>
+  <order>rule_description</order>
+</decoder>
+
+<decoder name="yara_rule_author">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">author="([^"]+)"</regex>
+  <order>rule_author</order>
+</decoder>
+
+<decoder name="yara_reference">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">reference="([^"]+)"</regex>
+  <order>reference</order>
+</decoder>
+
+<decoder name="yara_published_date">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">date="([^"]+)"</regex>
+  <order>published_date</order>
+</decoder>
+
+<decoder name="yara_threat_score">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">score\s*=\s*(\d+)</regex>
+  <order>threat_score</order>
+</decoder>
+
+<decoder name="yara_file_hash">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">hash1="([^"]+)"</regex>
+  <order>file_hash</order>
+</decoder>
+
+<decoder name="yara_tags">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">tags="([^"]+)"</regex>
+  <order>tags</order>
+</decoder>
+
+<decoder name="yara_file_deleted">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">Successfully deleted\s+(.*)</regex>
+  <order>file_deleted</order>
+</decoder>
+
+<decoder name="yara_file_not_deleted">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">Unable to delete\s+(.*)</regex>
+  <order>file_not_deleted</order>
+</decoder>
+
+<decoder name="yara_scanned_file">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">\] (.*?) \|</regex>
+  <order>scanned_file</order>
+</decoder>
+
+<decoder name="yara_chatgpt_response">
+  <parent>yara_decoder</parent>
+  <regex type="pcre2">chatgpt_response:\s*(.*)</regex>
+  <order>chatgpt_response</order>
+</decoder>
+
+<!-- ====================== CRON DECODERS ====================== -->
+
+<decoder name="cron-service">
+  <program_name>cron|CRON</program_name>
+</decoder>
+
+<decoder name="cron-service-cmd">
+  <parent>cron-service</parent>
+  <regex type="pcre2">\((\w+)\)\s+CMD\s+\((.*?)\)$</regex>
+  <order>service_user, command</order>
+</decoder>
+
+<decoder name="cron-service-skip">
+  <parent>cron-service</parent>
+  <regex type="pcre2">\((\w+)\)\s+INFO\s+\(Skipping @(\w+) jobs.*?\)$</regex>
+  <order>service_user, skipped_job_type</order>
+</decoder>
+
+<!-- ====================== TASKLIST DECODER ====================== -->
+
+<decoder name="tasklist_decoder">
+  <prematch>^tasklist:</prematch>
+  <regex>^tasklist:\s+Process:\s+(\S+)\s+PID:\s+(\d+)\s+User:\s+(\S+)</regex>
+  <order>process_name, pid, user</order>
+</decoder>
+
+<!-- ====================== SSH DECODERS ====================== -->
+
+<decoder name="sshd-failed-login">
+  <prematch>sshd</prematch>
+  <regex>Failed password for (\S+) from (\S+) port (\d+) ssh2</regex>
+  <order>srcuser, srcip, srcport</order>
+</decoder>
+
+<decoder name="sshd-success-login">
+  <prematch>sshd</prematch>
+  <regex>Accepted password for (\S+) from (\S+) port (\d+) ssh2</regex>
+  <order>srcuser, srcip, srcport</order>
+</decoder>
+
+<decoder name="sshd-invalid-user">
+  <prematch>sshd</prematch>
+  <regex>Invalid user (\S+) from (\S+) port (\d+) ssh2</regex>
+  <order>invalid_user, srcip, srcport</order>
+</decoder>
+
+<!-- ====================== SURICATA DECODERS ====================== -->
+
+<decoder name="suricata-alert">
+  <program_name>suricata</program_name>
+  <regex type="pcre2">.*\[\*\*\]\s+\[(\d+:\d+:\d+)\]\s+\[(\d+:\d+:\d+)\]\s+\[Classification:\s*([^\]]+)\]\s+\[Priority:\s*(\d+)\]\s+\{(\S+)\}\s+(\d{1,3}(?:\.\d{1,3}){3}):(\d+)\s+->\s+(\d{1,3}(?:\.\d{1,3}){3}):(\d+)</regex>
+  <order>alert_sid, alert_rev, alert_class, alert_priority, proto, srcip, srcport, dstip, dstport</order>
+</decoder>
+
+<decoder name="suricata-eve-json-alert">
+  <prematch>"event_type":"alert"</prematch>
+  <regex type="pcre2">"signature":"([^"]+)".*"signature_id":\s*([0-9]+).*"src_ip":"([^"]+)".*"src_port":\s*([0-9]+).*"dest_ip":"([^"]+)".*"dest_port":\s*([0-9]+)</regex>
+  <order>signature, signature_id, srcip, srcport, dstip, dstport</order>
+</decoder>
+
+<!-- ====================== SYSTEMD DECODER ====================== -->
+
+<decoder name="systemd-service">
+  <prematch>systemd</prematch>
+  <regex>Started (.*?) service for (.*?)\.</regex>
+  <order>service_action, service_name</order>
+</decoder>
+
+<decoder name="systemd-failed">
+  <prematch>systemd</prematch>
+  <regex>Failed to start (.*?) service</regex>
+  <order>failed_service</order>
+</decoder>
+
+<!-- ====================== AUDIT DECODER ====================== -->
+
+<decoder name="audit-file-modification">
+  <prematch>type=PATH</prematch>
+  <regex>item=\d+\s+name="([^"]+)"\s+inode=\d+</regex>
+  <order>modified_file</order>
+</decoder>
+
+<decoder name="audit-selinux">
+  <prematch>type=AVC</prematch>
+  <regex>avc:\s+.*\s+comm="([^"]+)"\s+.*\s+pid=(\d+)</regex>
+  <order>process_name, pid</order>
+</decoder>
+
+<!-- ====================== WINDOWS SECURITY LOG DECODERS ====================== -->
+
+<decoder name="win-security-login">
+  <prematch>EventID=4624</prematch>
+  <regex>Account Name:\s+(\S+)\s+Account Domain:\s+(\S+)</regex>
+  <order>user, domain</order>
+</decoder>
+
+<decoder name="win-security-failed-login">
+  <prematch>EventID=4625</prematch>
+  <regex>Account Name:\s+(\S+)\s+Account Domain:\s+(\S+)</regex>
+  <order>user, domain</order>
+</decoder>
+
+<!-- ====================== FIREWALL DECODERS ====================== -->
+
+<decoder name="firewall-log">
+  <prematch>kernel:</prematch>
+  <regex>IN=(\S*)\s+OUT=(\S*)\s+MAC=(\S*)\s+SRC=(\S*)\s+DST=(\S*)\s+LEN=(\d+)\s+TOS=(\S+)\s+PREC=(\S+)\s+TTL=(\d+)\s+PROTO=(\S+)\s+SPT=(\d+)\s+DPT=(\d+)</regex>
+  <order>iface_in, iface_out, mac, srcip, dstip, packet_len, tos, prec, ttl, proto, srcport, dstport</order>
+</decoder>
+
+<!-- ====================== WAZUH ACTIVE RESPONSE ====================== -->
+
+<decoder name="wazuh-active-response">
+  <prematch>wazuh-execd</prematch>
+  <regex>ossec:.*Active response: (.*?) for (.*?)</regex>
+  <order>response_action, target</order>
+</decoder>
+
+<!-- ====================== VIRUSTOTAL DECODER ====================== -->
+
+<decoder name="virustotal_integration">
+  <prematch>virustotal</prematch>
+  <regex type="pcre2">"positives":\s*(\d+),.*"total":\s*(\d+),.*"scan_date":\s*"([^"]+)"</regex>
+  <order>positives, total_scans, scan_date</order>
+</decoder>
+
+<!-- ====================== POWERSHELL DECODER ====================== -->
+
+<decoder name="win-powershell-execution">
+  <prematch>EventID=4104</prematch>
+  <regex type="pcre2">ScriptBlockText:\s*(.*)</regex>
+  <order>script_command</order>
+</decoder>
+
+<!-- ====================== WINDOWS PROCESS CREATION ====================== -->
+
+<decoder name="win-process-creation">
+  <prematch>EventID=4688</prematch>
+  <regex type="pcre2">New Process Name:\s*(\S+).*Creator Process Name:\s*(\S+)</regex>
+  <order>new_process, parent_process</order>
+</decoder>
+
+<!-- ====================== WEB SERVER DECODERS ====================== -->
+
+<decoder name="apache-access">
+  <prematch>access.log</prematch>
+  <regex type="pcre2">(\S+) - (\S+) \[(.*?)\] "(\S+) (\S+) (\S+)" (\d+) (\d+)</regex>
+  <order>client_ip, user, timestamp, method, url, protocol, status, bytes</order>
+</decoder>
+
+<decoder name="yara_decoder_alt">
+  <prematch>wazuh-yara:</prematch>
+</decoder>
+
+<decoder name="yara_decoder1">
+  <parent>yara_decoder</parent>
+  <regex>wazuh-yara: (\S+) - Scan result: (\S+) (\S+)</regex>
+  <order>log_type, yara_rule, yara_scanned_file</order>
+</decoder>
+
+<decoder name="json">
+  <prematch>^{\s*"</prematch>
+</decoder>
+
+<decoder name="json_child_plugin">
+  <parent>json</parent>
+  <regex type="pcre2">"src_ip":"([^"]+)"</regex>
+  <order>srcip</order>
+</decoder>
+
+<decoder name="json_child">
+  <parent>json</parent>
+  <plugin_decoder>JSON_Decoder</plugin_decoder>
+</decoder>
+
+<decoder name="CEF">
+      <program_name>^CEF$</program_name>
+</decoder>
+
+<decoder name="CEF_child">
+      <parent>CEF</parent>
+      <regex>(\w+)\|(\w+)\|(\w+)\|(\.+)\|(\d+-\d+-\d+)\|(\.+)\|(\d+)\|src=(\d+.\d+.\d+.\d+) spt=(\.+) dst=(\d+.\d+.\d+.\d+) dpt=(\.+) trail=(\.+) ref=(\.+)</regex>
+      <order>code, application, type, version, date, category, severity, srcip, srcport, dstip, dstport, trail, ref</order>
+</decoder>
+
+<decoder name="wazuh-authd">
+  <prematch>wazuh-authd:</prematch>
+</decoder>
+<decoder name="wazuh-authd-duplicate">
+  <parent>wazuh-authd</parent>
+  <regex>WARNING: Duplicate name '(\S+)', rejecting enrollment\. Agent '(\d+)' key already exists on the manager\.</regex>
+  <order>duplicate_name, agent_id</order>
+</decoder>
+
+
+<!-- ========================================================= -->
+<!--  Additional SOC Decoders - Ahmed Emad (v2.1 Extension)     -->
+<!-- ========================================================= -->
+
+<!-- ========================================================= -->
+<!--  End of Enhanced Custom Local Decoders                     -->
+<!-- ========================================================= -->
